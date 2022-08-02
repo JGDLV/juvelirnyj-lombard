@@ -1,0 +1,88 @@
+-
+  var intro = {
+    slider: [
+      {
+        header: 'Полировка украшений за полцены',
+        texts: [
+          'Заполируем вашу старую цепочку или кольцо по символической стоимости 700 руб.',
+          'Акция действует до 15 июля.',
+        ],
+        image: 'img/slider-01.png'
+      },
+      {
+        header: 'Полировка украшений за полцены',
+        texts: [
+          'Заполируем вашу старую цепочку или кольцо по символической стоимости 700 руб.',
+          'Акция действует до 15 июля.',
+        ],
+        image: 'img/slider-01.png'
+      },
+      {
+        header: 'Полировка украшений за полцены',
+        texts: [
+          'Заполируем вашу старую цепочку или кольцо по символической стоимости 700 руб.',
+          'Акция действует до 15 июля.',
+        ],
+        image: 'img/slider-01.png'
+      },
+    ],
+    order: {
+      header: 'Заказ изделия',
+      texts: [
+        'Вы точно будете выделяться – изготовим уникальное украшение по индивидуальному заказу',
+        'Обращайтесь в нашу ювелирную мастерскую.',
+      ],
+      button: { href: '#', text: 'Оставить заявку' }
+    },
+    izgotovlenie: {
+      header: 'Ювелирные изделия на заказ в Москве',
+      subheader: 'Создадим украшение вашей мечты, которого точно ни у кого нет',
+      text: 'Неповторимое колье, необычные серьги из&nbsp;серебра и&nbsp;золота или кольцо с&nbsp;бриллиантом&nbsp;&mdash; воплотите самые смелые задумки в&nbsp;жизнь. А&nbsp;мы&nbsp;поможем&nbsp;&mdash; занимаемся изготовлением ювелирных изделий на&nbsp;заказ из&nbsp;различных материалов. Используем технологию 3D-моделирования, поэтому возможна практически любая форма, также наносим гравировку. Заранее покажем, как будет выглядеть предмет, чтобы при необходимости внести корректировки.',
+    },
+    remont: {
+      header: 'Ремонт ювелирных изделий <br>и полировка украшений',
+      subheader: 'Вернем вашим драгоценностям первозданный вид',
+      text: 'Обращайтесь, если нужно восстановить или просто обновить украшение – предлагаем качественный ремонт ювелирных изделий из золота, серебра и других металлов. Установим бриллианты взамен утерянных, увеличим размер, закрепим камни, отполируем до состояния нового – по итогу вы не заметите разницы.',
+    },
+  }
+
+.intro#intro(style=index ? '' : page == 'izgotovlenie' ? "background-image: url('img/intro-inner-bg-01.jpg')" : "background-image: url('img/intro-inner-bg-02.jpg')")
+  .container
+    if index
+      .intro__inner.row
+        .intro__left.col-lg-9
+          .intro-slider.owl-carousel
+            each slide in intro.slider
+              .intro__slide
+                h2.intro__slide-header !{slide.header}
+                .intro__slide-text
+                  each text in slide.texts
+                    p !{text}
+                img.intro__slide-image(src=slide.image, alt="")
+        .intro__right.col-lg-3
+          .intro__order
+            h2.intro__order-header !{intro.order.header}
+            .intro__order-text
+              each text in intro.order.texts
+                p !{text}
+            a.intro__order-button.btn.btn_white(href=intro.order.button.href) !{intro.order.button.text}
+
+    else if page == 'izgotovlenie'
+      .breadcrumbs
+        ul.breadcrumbs-items
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href="") Главная
+          li.breadcrumbs__item Изготовление
+      h1.intro__header !{intro.izgotovlenie.header}
+      p.intro__subheader.subheader !{intro.izgotovlenie.subheader}
+      p.intro__text !{intro.izgotovlenie.text}
+
+    else if page == 'remont'
+      .breadcrumbs
+        ul.breadcrumbs-items
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href="") Главная
+          li.breadcrumbs__item Ремонт
+      h1.intro__header !{intro.remont.header}
+      p.intro__subheader.subheader !{intro.remont.subheader}
+      p.intro__text !{intro.remont.text}

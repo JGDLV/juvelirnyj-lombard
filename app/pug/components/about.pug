@@ -1,0 +1,75 @@
+-
+  var about = {
+    header: '«Золотая точка» – мастерская по изготовлению ювелирных изделий в Москве',
+    subheader: 'Сделаем украшение вашей мечты, которое будет радовать долгие годы',
+    texts: [
+      'Более 6 лет занимаемся производством уникальных украшений из различных драгоценных металлов и камней по эскизам или имеющемуся примеру – за это время получили множество положительных отзывов от клиентов.',
+      'В распоряжении собственное производство в Москве с современным и точным оборудованием, возможно 3D-моделирование, поэтому гарантируем идеальный внешний вид украшений.',
+    ],
+    image: 'img/about-image.jpg',
+    items: [
+      {
+        header: '10 сотрудников',
+        text: 'Каждый из которых профессионал своего дела, что подтверждено сертификатами и отзывами'
+      },
+      {
+        header: 'Более 6 лет',
+        text: 'Опыта работы – прекрасно знаем все тонкости в изготовлении и ремонте ювелирных украшений'
+      },
+      {
+        header: 'Три филиала',
+        text: 'С удобным расположением – обращайтесь в любой из них, работаем ежедневно '
+      },
+      {
+        header: '«От» и «до»',
+        text: 'Поддержка клиентов – с момента обращения в ювелирную мастерскую и до выдачи готового изделия '
+      },
+    ],
+    remont: {
+      image: 'img/about-image2.jpg',
+      header: 'Качественный ремонт ювелирных украшений без переплат',
+      subheader: 'Обновленное украшение будет в состоянии как из коробки',
+      text: 'Вам не о чем переживать – ремонтом в ювелирной мастерской занимаются специалисты с опытом работы более 10 лет, которые выполнили не один десяток различных проектов по восстановлению дорогих и сложных по форме драгоценностей. Регулярно проходим дополнительное обучение и повышаем квалификацию. Убедитесь в профессионализме наших сотрудников – ознакомьтесь с сертификатами.'
+    },
+    docs: [
+      'img/doc.jpg',
+      'img/doc.jpg',
+      'img/doc.jpg',
+      'img/doc.jpg',
+    ]
+  }
+
+.about#about
+  .container
+    if index
+      h2.about__header !{about.header}
+      p.about__subheader.subheader !{about.subheader}
+      .about__inner.row
+        .about__left.col-lg-8
+          img.about__image(src=about.image, alt="")
+        .about__right.col-lg-4
+          .about__text
+            each text in about.texts
+              p !{text}
+      .about-items.row
+        each item, index in about.items
+          .about__item.col-xl-3.col-md-6
+            .about__item-image-part
+              svg.about__item-image
+                use(xlink:href="img/sprite.svg#about-0" + (index + 1))
+            .about__item-text-part
+              p.about__item-header !{item.header}
+              p.about__item-text !{item.text}
+
+    else if page == 'remont'
+      .about__inner.row
+        .about__left.col-lg-5
+          img.about__image(src=about.remont.image, alt="")
+        .about__right.col-lg-7
+          h2.about__header !{about.remont.header}
+          p.about__subheader.subheader !{about.remont.subheader}
+          p.about__text !{about.remont.text}
+      .about-docs.row
+        each doc in about.docs
+          a.about-docs__item.col-md-3.col-6(href=doc)
+            img.about-docs__item-image(src=doc, alt="")

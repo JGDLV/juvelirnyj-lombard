@@ -1,0 +1,21 @@
+-
+  var portfolio = {
+    header: 'Ювелирные изделия на заказ, изготовленные <br>в нашей мастерской',
+    items: [
+      { image: 'img/portfolio-01.jpg', header: 'Кольцо с самолетом', },
+      { image: 'img/portfolio-02.jpg', header: 'Браслет мужской', },
+      { image: 'img/portfolio-03.jpg', header: 'Серьги женские', },
+      { image: 'img/portfolio-03.jpg', header: 'Серьги женские', },
+    ],
+  }
+
+.portfolio#portfolio
+  .container
+    h2.portfolio__header !{portfolio.header}
+    .portfolio-items.owl-carousel
+      each item in portfolio.items
+        .portfolio__item
+          .portfolio__item-image-part
+            img.portfolio__item-image(src=item.image, alt='')
+          .portfolio__item-text-part
+            p.portfolio__item-header !{item.header}

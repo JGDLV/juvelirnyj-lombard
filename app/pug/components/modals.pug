@@ -1,0 +1,26 @@
+.modal.mfp-hide#callback
+  h2.modal__header Заказ звонка
+  p.modal__text Специалист мастерской свяжется с&nbsp;вами в&nbsp;течение дня
+  form.modal-form
+    input(type="hidden" name="act" value="callback")
+    input.modal-form__input.modal-form__name(type="text" name="name" placeholder="Ваше имя")
+    input.modal-form__input.modal-form__phone(type="text" name="phone" placeholder="Ваш телефон *" required)
+    label.modal-form__label.modal-form__privacy
+      input(type="checkbox" required)
+      | Я разрешаю обработку моих #[a(href="#") персональных данных]
+    button.modal-form__button.btn(type="submit") Заказать звонок
+.modal.mfp-hide#consult
+  h2.modal__header Заказ консультации
+  p.modal__text Специалист мастерской свяжется с&nbsp;вами в&nbsp;течение дня
+  form.modal-form
+    input(type="hidden" name="act" value="consult")
+    input.modal-form__input.modal-form__name(type="text" name="name" placeholder="Ваше имя")
+    input.modal-form__input.modal-form__phone(type="text" name="phone" placeholder="Ваш телефон *" required)
+    label.modal-form__label.modal-form__privacy
+      input(type="checkbox" required)
+      | Я разрешаю обработку моих #[a(href="#") персональных данных]
+    button.modal-form__button.btn(type="submit") Заказать звонок
+.modal.modal_thanks.mfp-hide
+  img(src="img/check.svg", alt="")
+  h2.modal__header Заявка отправлена
+  p.modal__text Специалист мастерской свяжется с&nbsp;вами в&nbsp;течение дня

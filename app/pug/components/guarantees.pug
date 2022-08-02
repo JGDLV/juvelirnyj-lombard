@@ -1,0 +1,25 @@
+-
+  var guarantees = {
+    items: [
+      {
+        header: 'Способы оплаты',
+        content: 'Платите как вам удобно: принимаем банковские карты любых банков, также можно рассчитаться наличными деньгами.'
+      },
+      {
+        header: 'Гарантии',
+        content: 'Вы получите документ, подтверждающий подлинность изделия, а также гарантийный талон — срок индивидуален для каждого украшения.'
+      },
+    ],
+    image: 'img/guarantee-image.jpg'
+  }
+
+.guarantees#guarantees
+  .container
+    .guarantees__inner.row
+      .guarantees__left.col-lg-5
+        each item in guarantees.items
+          .guarantees__text
+            p.guarantees__text-header !{item.header}
+            p.guarantees__text-content !{item.content}
+      .guarantees__right.col-lg-7
+        img.guarantees__image(src=guarantees.image, alt="")

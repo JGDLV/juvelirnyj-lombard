@@ -1,0 +1,249 @@
+@media (max-width: 1300px)
+  .portfolio .owl-prev
+    left: 10px
+  .portfolio .owl-next
+    right: 10px
+  
+@media (max-width: 1200px)
+  .intro
+    padding: 40px 0 !important
+    &__slide
+      padding: 30px 60px 70px
+      &-image
+        opacity: .4
+  .benefits
+    padding: 40px 0 !important
+  .catalog
+    padding: 40px 0 !important
+    &-items
+      justify-content: center
+    &__item
+      width: 240px
+  .guarantees
+    padding: 40px 0 !important
+  .services
+    padding: 40px 0
+  .about
+    padding: 40px 0 !important
+    &-items
+      margin-bottom: -30px
+    &__item
+      margin-bottom: 30px
+    &-docs
+      padding: 20px 0 !important
+  .reviews
+    padding: 40px 0
+  .map
+    padding: 40px 0
+  .cta
+    padding: 40px 0 !important
+    text-align: center
+    &__image
+      display: none
+    br
+      display: none
+    &__button
+      margin: auto
+  .footer
+    padding: 40px 0
+    text-align: center
+    &__text
+      margin: 15px 0
+    &__right
+      text-align: center
+  .header
+    &__top
+      padding: 30px 0
+    &__text
+      display: none
+    &__cart
+      width: auto
+      &-text
+        display: none
+  .logo
+    margin-right: auto
+  .scheme
+    padding: 40px 0 0
+  .portfolio
+    padding: 40px 0 0
+  .block
+    padding: 40px 0
+
+  .inner
+    .cta
+      &__header
+        max-width: 100%
+      &__text
+        max-width: 100%
+      &__button
+        margin: auto
+
+  #bx_basketFKauiI
+    width: auto
+
+@media (max-width: 992px)
+  .guarantees__text
+    margin-bottom: 30px !important
+  .about__left
+    margin-bottom: 30px
+  .menu
+    & > ul
+      justify-content: center
+      & > li
+        padding: 10px
+        flex-grow: 0
+  .scheme
+    &-items
+      margin-bottom: -80px
+    &__item
+      margin-bottom: 80px
+  .block_contacts
+    padding-top: 110px
+
+@media (max-width: 768px)
+  .benefits
+    &__subheader
+      margin-bottom: 40px
+    &-items
+      margin-bottom: -30px
+    &__item
+      margin-bottom: 30px
+  .services__item
+    margin-bottom: 30px
+    &:last-child
+      margin-bottom: 0
+  .reviews__part
+    margin-bottom: 30px
+    &:last-child
+      margin-bottom: 0
+  h1, h2, .guarantees__text-header
+    font-size: 30px !important
+    line-height: normal !important
+  .subheader
+    font-size: 20px
+    line-height: normal !important
+  .map__addresses
+    width: 100%
+    left: 0
+    top: auto
+    bottom: 0
+    padding-top: 25px
+    padding-bottom: 25px
+  .intro__slide-image
+    display: none
+  .header__contacts
+    display: none
+
+@media (max-width: 576px)
+  h1, h2, .guarantees__text-header
+    font-size: 24px !important
+  .subheader
+    font-size: 18px
+  .cta__header
+    font-size: 20px
+    line-height: normal
+  .logo > a > img
+    width: 50px
+  .header
+    background-size: auto
+    &__top
+      padding: 20px 0
+      &-inner
+        align-items: center
+        & > *
+          padding-top: 0
+          padding-bottom: 0
+    &__cart
+      height: 40px
+      margin-left: auto
+      margin-right: 30px
+      &::before
+        top: 0
+      &-counter
+        top: -5px
+    &__callback
+      width: 120px
+      height: auto
+      padding: 5px 15px
+      font-size: 12px
+    &__button
+      margin-left: 0
+  .menu
+    & > ul
+      display: none
+    &-toggle
+      display: flex
+  .intro
+    padding: 20px 0 30px
+
+  .inner
+    .header
+      height: auto
+      padding-bottom: 20px
+    .icon-toggle span
+      background: #fff
+    .intro__header
+      padding-top: 30px
+  
+  .block_contacts
+    padding: 40px 0 0
+
+  .submenu
+    display: none
+    position: static !important
+    box-shadow: none !important
+    padding: 10px 0
+    li
+      ul
+        display: none !important
+      &.parent
+        &::before, &::after
+          content: none !important
+      a
+        min-height: 0 !important
+        font-size: 16px !important
+    &__toggle
+      display: block
+      width: 20px
+      height: 20px
+      // background: #000
+      position: absolute
+      top: 10px
+      bottom: 10px
+      right: 10px
+      cursor: pointer
+      &::before, &::after
+        +p
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        transform: rotate(-90deg)
+        +tr
+      &::before
+        background: url('../img/sprite.svg#arrow-left') no-repeat
+        background-size: 20px
+      &.active
+        &::before
+          transform: rotate(-270deg)
+
+  .menu
+    &__item
+      &:hover
+        .submenu
+          display: none
+
+@media (max-width: 480px)
+  .intro__left
+    display: none
+  .catalog__item
+    width: 50%
+    &-text
+      font-size: 16px
+
+  .inner
+    .cta
+      &__inner
+        padding: 30px 20px
+
+  

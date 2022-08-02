@@ -1,0 +1,21 @@
+-
+  var map = {
+    header: 'Адреса мастерских',
+    items: [
+      { header: 'Москва, Долгоруковская, 40,', text: 'Ежедневно с 10:00 до 20:00' },
+      { header: 'Москва, Климентовский пер., 2,', text: 'Ежедневно с 10:00 до 20:00' },
+      { header: 'Москва, 2-я Владимирская улица, 43/23,', text: 'Понедельник-пятница: с 10:00 до 19:50, <br>Cуббота 11:00-19:00, <br>Воскресенье 11:00-18:00' },
+    ],
+  }
+
+.map#map
+  .container
+    h2.map__header !{map.header}
+    .map__inner
+      //- img(src="img/map.jpg", alt="")
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5d16256ad9b764b1df656d6d40725ff190a4651480d3d26cacc2bd48fe54516d&amp;width=100%25&amp;height=569&amp;lang=ru_RU&amp;scroll=false"></script>
+      .map__addresses
+        each item in map.items
+          .map__address
+            p.map__address-header !{item.header}
+            p.map__address-text !{item.text}

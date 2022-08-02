@@ -1,0 +1,17 @@
+extends _layout.pug
+
+block variables
+  -
+    var title = 'Ремонт'
+    var description = 'Ремонт'
+    var index = false
+    var page = 'remont'
+
+block content
+  include components/intro.pug
+  include components/benefits.pug
+  include components/catalog.pug
+  include components/guarantees.pug
+  include components/about.pug
+  include components/map.pug
+  include components/cta.pug

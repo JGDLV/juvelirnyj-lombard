@@ -1,0 +1,12 @@
+if index
+  .cta#cta
+    .container
+      .cta__inner.row
+        .cta__text-part.col-xl-6
+          p.cta__header !{cta.header}
+          p.cta__text !{cta.text}
+        .cta__button-part.col-xl-4
+          a.cta__button.btn(href=cta.button.href) !{cta.button.text}
+        img.cta__image(src=cta.image, alt="")
+else if page = 'izgotovlenie'
+  +cta(cta.izgotovlenie.cta[1].header, cta.izgotovlenie.cta[1].text, cta.izgotovlenie.cta[1].button.href, cta.izgotovlenie.cta[1].button.text, cta.izgotovlenie.cta[1].image)

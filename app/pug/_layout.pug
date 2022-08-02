@@ -1,0 +1,36 @@
+block variables
+  -
+    var title = 'title'
+    var description = 'description'
+
+mixin cta(header, text, buttonHref, buttonText, image)
+  .cta
+    .container
+      .cta__inner
+        p.cta__header !{header}
+        p.cta__text !{text}
+        a.cta__button.btn(href=buttonHref) !{buttonText}
+        img.cta__image(src=image, alt="")
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    title= title
+    meta(name='description' content=description)
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Montserrat:wght@400;700&display=swap')
+    link(rel='stylesheet' href='css/libs.min.css')
+    link(rel='stylesheet' href='css/style.css')
+  body(class=index ? '' : 'inner')
+    header.header
+      include components/_header.pug
+    main.content
+      block content
+    footer.footer
+      include components/_footer.pug
+    include components/modals.pug
+    #top.fas.fa-arrow-up.a-drop
+    script(src='js/libs.min.js')
+    script(src='js/scripts.js')

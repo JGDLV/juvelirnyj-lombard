@@ -1,0 +1,201 @@
+-
+  var clearPhone = function(x) {
+    return x.replace(/\D/g, '');
+  }
+
+  var header = {
+    logo: 'img/logo.svg',
+    logoInner: 'img/logo-inner.svg',
+    tagline: 'Мастерская по изготовлению ювелирных изделий в Москве',
+    addresses: {
+      href: '#',
+      text: 'Адреса мастерских'
+    },
+    contacts: {
+      phone: '+7 (985) 253-61-19',
+      whours: 'Ежедневно с 10:00 до 20:00'
+    },
+    button: { href: '#callback', text: 'Заказать звонок' },
+    menu: [
+      { href: '#', text: 'О мастерской' },
+      { href: '#', text: 'Изготовление' },
+      { href: '#', text: 'Ремонт' },
+      { href: '#', text: 'Готовые изделия' },
+      { href: '#', text: 'Продать' },
+      { href: '#', text: 'Контакты' },
+    ]
+  }
+
+  var mainMenu = [
+    {
+      text: 'О мастерской',
+    }, {
+      text: 'Изготовление',
+      submenu: [
+        {
+          text: 'Кольца на заказ',
+        }, {
+          text: 'Мужские печатки на заказ'
+        }, {
+          text: 'Цепочки на заказ'
+        }, {
+          text: 'Браслеты на заказ'
+        }, {
+          text: 'Серьги на заказ',
+        }, {
+          text: 'Кулоны на заказ'
+        }, {
+          text: 'Колье на заказ'
+        }, {
+          text: 'Запонки на заказ'
+        }, {
+          text: 'Крестики на заказ'
+        }, {
+          text: 'Броши на заказ'
+        }, {
+          text: 'Прайс-лист на услуги'
+        }, 
+      ]
+    }, {
+      text: 'Ремонт',
+      submenu: [
+        {
+          text: 'Ремонт цепочек'
+        }, {
+          text: 'Ремонт браслетов'
+        }, {
+          text: 'Ремонт колец'
+        }, {
+          text: 'Ремонт сережек'
+        }, {
+          text: 'Ремонт замков'
+        }, {
+          text: 'Установка камней'
+        }, {
+          text: 'Закрепление камней'
+        }, {
+          text: 'Увеличение размера'
+        }, {
+          text: 'Ремонт штифтов'
+        }, {
+          text: 'Полировка'
+        }, {
+          text: 'Прайс-лист на услуги'
+        }
+      ]
+    }, {
+      text: 'Готовые изделия',
+      submenu: [
+        {
+          text: 'Кольца',
+          submenu: [
+            {
+              text: 'Обручальные'
+            }, {
+              text: 'Помолвочные'
+            }, {
+              text: 'Из золота'
+            }, {
+              text: 'Из серебра'
+            }, {
+              text: 'С камнями'
+            }, {
+              text: 'С бриллиантами'
+            }, {
+              text: 'Мужские печатки'
+            }
+          ]
+        }, {
+          text: 'Серьги',
+          submenu: [
+            {
+              text: 'Из золота'
+            }, {
+              text: 'Из серебра'
+            }, {
+              text: 'С камнями'
+            }, {
+              text: 'С бриллиантами'
+            }
+          ]
+        }, {
+          text: 'Цепочки',
+          submenu: [
+            {
+              text: 'Золотые'
+            }, {
+              text: 'Серебряные'
+            }
+          ]
+        }, {
+          text: 'Браслеты',
+          submenu: [
+            {
+              text: 'Золотые'
+            }, {
+              text: 'Серебряные'
+            }
+          ]
+        }, {
+          text: 'Колье'
+        }, {
+          text: 'Подвески'
+        }, {
+          text: 'Кулоны'
+        }, {
+          text: 'Броши'
+        }, {
+          text: 'Запонки'
+        }, {
+          text: 'Кресты'
+        }
+      ]
+    }, {
+      text: 'Контакты'
+    }
+  ]
+
+.header__top
+  .container
+    .header__top-inner.row
+      .logo
+        a.logo__link(href='/')
+          img.logo__image(src=index ? header.logo : header.logoInner, alt='')
+      .header__text
+        p.tagline !{header.tagline}
+        //- a.header__addresses(href=header.addresses.href) !{header.addresses.text}
+        p.header__addresses Москва, Долгоруковская, 40
+      a#bx_basketFKauiI.header__cart(href="") 
+        .header__cart-text #[strong 3 товара] <br>в корзине
+        .header__cart-counter 3
+      .header__contacts
+        a.header__contacts-phone(href="tel:+" + clearPhone(header.contacts.phone)) !{header.contacts.phone}
+        p.header__contacts-whours !{header.contacts.whours}
+      .header__button
+        a.header__callback.btn.btn_stroke(href=header.button.href) !{header.button.text}
+.header__bottom
+  .container
+    .menu
+      .menu-toggle
+        i.icon-toggle
+          span
+          span
+          span
+      ul.menu-items.mobile-menu
+        each item in mainMenu
+          - var parentClass = item.submenu ? 'parent' : ''
+          li.menu__item(class=parentClass)
+            a.menu__link(href="#") !{item.text}
+            if (item.submenu)
+              ul.submenu
+                each subItem in item.submenu
+                  - var parentClass = subItem.submenu ? 'parent' : ''
+                  li.submenu__item(class=parentClass)
+                    a.submenu__link(href="#") !{subItem.text}
+                    if (subItem.submenu)
+                      ul.submenu
+                        each subSubItem in subItem.submenu
+                          li.submenu__item
+                            a.submenu__link(href="#") !{subSubItem.text}
+if index
+  include intro.pug

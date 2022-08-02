@@ -1,0 +1,88 @@
+-
+  var catalog = {
+    header: 'Посмотрите каталог украшений — <br>повторим любое или изготовим уникальное',
+    subheader: 'Изделия, произведенные в нашей ювелирной мастерской в Москве',
+    items: [
+      { image: 'img/catalog-01.jpg', header: 'Кольца' },
+      { image: 'img/catalog-02.jpg', header: 'Серьги' },
+      { image: 'img/catalog-03.jpg', header: 'Цепочки' },
+      { image: 'img/catalog-04.jpg', header: 'Браслеты' },
+      { image: 'img/catalog-05.jpg', header: 'Колье' },
+      { image: 'img/catalog-06.jpg', header: 'Подвески' },
+      { image: 'img/catalog-07.jpg', header: 'Кулоны' },
+      { image: 'img/catalog-08.jpg', header: 'Броши' },
+      { image: 'img/catalog-09.jpg', header: 'Запонки' },
+      { image: 'img/catalog-10.jpg', header: 'Кресты' },
+    ],
+    izgotovlenie: {
+      header: 'Каталог ювелирных украшений из серебра <br>и золотана заказ',
+      subheader: 'Изготовим все – от колечка до кулона со сложной формой и гравировкой',
+      items: [
+        { image: 'img/catalog-01.jpg', header: 'Кольца <br>на заказ' },
+        { image: 'img/catalog-11.jpg', header: 'Мужские <br>печатки на заказ' },
+        { image: 'img/catalog-03.jpg', header: 'Цепочки <br>на заказ' },
+        { image: 'img/catalog-04.jpg', header: 'Браслеты <br>на заказ' },
+        { image: 'img/catalog-12.jpg', header: 'Серьги <br>на заказ' },
+        { image: 'img/catalog-13.jpg', header: 'Кулоны <br>на заказ' },
+        { image: 'img/catalog-14.jpg', header: 'Колье <br>на заказ' },
+        { image: 'img/catalog-09.jpg', header: 'Запонки <br>на заказ' },
+        { image: 'img/catalog-10.jpg', header: 'Крестики <br>на заказ' },
+        { image: 'img/catalog-15.jpg', header: 'Броши <br>на заказ' },
+      ],
+      button: { href: '#', text: 'Общий прайс-лист на услуги' },
+    },
+    remont: {
+      header: 'Ремонт ювелирных изделий с различными повреждениями',
+      subheader: 'Беремся даже за сложные задачи',
+      items: [
+        { image: 'img/catalog-03.jpg', header: 'Ремонт <br>цепочек' },
+        { image: 'img/catalog-16.jpg', header: 'Ремонт <br>браслетов' },
+        { image: 'img/catalog-17.jpg', header: 'Ремонт <br>колец' },
+        { image: 'img/catalog-18.jpg', header: 'Ремонт <br>сережек' },
+        { image: 'img/catalog-19.jpg', header: 'Ремонт <br>замков' },
+        { image: 'img/catalog-20.jpg', header: 'Установка <br>камней' },
+        { image: 'img/catalog-21.jpg', header: 'Закрепление камней' },
+        { image: 'img/catalog-22.jpg', header: 'Увеличение размера' },
+        { image: 'img/catalog-23.jpg', header: 'Ремонт <br>штифтов' },
+        { image: 'img/catalog-24.jpg', header: 'Полировка' },
+      ],
+      button: { href: '#', text: 'Общий прайс-лист на услуги' },
+    },
+  }
+
+.catalog#catalog
+  .container
+    if index
+      h2.catalog__header !{catalog.header}
+      p.catalog__subheader.subheader !{catalog.subheader}
+      .catalog-items.row
+        each item, index in catalog.items
+          a.catalog__item(href="#")
+            span.catalog__item-inner
+              span.catalog__item-image-part
+                img.catalog__item-image(src=item.image, alt='')
+              span.catalog__item-text !{item.header}
+
+    else if page == 'izgotovlenie'
+      h2.catalog__header !{catalog.izgotovlenie.header}
+      p.catalog__subheader.subheader !{catalog.izgotovlenie.subheader}
+      .catalog-items.row
+        each item, index in catalog.izgotovlenie.items
+          a.catalog__item(href="#")
+            span.catalog__item-inner
+              span.catalog__item-image-part
+                img.catalog__item-image(src=item.image, alt='')
+              span.catalog__item-text !{item.header}
+      a.catalog__button.btn.btn_yellow(href=catalog.izgotovlenie.button.href) !{catalog.izgotovlenie.button.text}
+
+    else if page == 'remont'
+      h2.catalog__header !{catalog.remont.header}
+      p.catalog__subheader.subheader !{catalog.remont.subheader}
+      .catalog-items.row
+        each item, index in catalog.remont.items
+          a.catalog__item(href="#")
+            span.catalog__item-inner
+              span.catalog__item-image-part
+                img.catalog__item-image(src=item.image, alt='')
+              span.catalog__item-text !{item.header}
+      a.catalog__button.btn.btn_yellow(href=catalog.remont.button.href) !{catalog.remont.button.text}
